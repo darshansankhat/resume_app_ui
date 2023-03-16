@@ -54,6 +54,18 @@ class _Menu_scrrenState extends State<Menu_scrren> {
                   },child: Option("Work\nExpirence",Icon(Icons.work,color: Colors.pink,size: 45))),
                 ],
               ),
+              SizedBox(height: 10),
+              Row(
+                children: [
+                  InkWell(onTap: (){
+                    Navigator.pushNamed(context, "sal");
+                  },child: Option("Salary\nInformation",Icon(Icons.currency_exchange,color: Colors.pink,size: 45))),
+                  Spacer(),
+                  InkWell(onTap: (){
+                    Navigator.pushNamed(context, "expi");
+                  },child: Option("Technical\nSkill",Icon(Icons.spoke,color: Colors.pink,size: 45))),
+                ],
+              ),
             ],
           ),
         ),

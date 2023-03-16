@@ -5,6 +5,7 @@ import 'package:resume_app_ui/Option_Scrren/Expirence.dart';
 import 'package:resume_app_ui/Option_Scrren/Language.dart';
 import 'package:resume_app_ui/Option_Scrren/Personal_information.dart';
 import 'package:resume_app_ui/Option_Scrren/Qualification.dart';
+import 'package:resume_app_ui/Option_Scrren/Salary_Scrren.dart';
 
 void main()
 {
@@ -18,6 +19,7 @@ void main()
         "Quali" : (context) => Qualification(),
         "Language" : (context) => Language_scrren(),
         "expi" : (context) => Expirence_scrren(),
+        "sal" : (context) => Salary_scrren(),
       },
     ),
   );

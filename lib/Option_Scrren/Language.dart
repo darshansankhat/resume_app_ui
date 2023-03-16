@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 class Language_scrren extends StatefulWidget {
@@ -31,58 +33,59 @@ class _Language_scrrenState extends State<Language_scrren> {
       ),
       body: Column(
         children: [
-          ListTile(
-            leading: Icon(Icons.person),
-            title: Text("Known Language"),
-            trailing: Icon(Icons.edit),
-            tileColor: Colors.pink.shade200,
+          ExpansionTile(
+            leading: Icon(Icons.person,color: Colors.pink,),
+            title: Text("Known Language",style: TextStyle(color: Colors.pink),),
+            trailing: Icon(Icons.edit,color: Colors.pink,),
+            collapsedBackgroundColor: Colors.pink.shade100,
+            children: [
+              //1
+              CheckboxListTile(value: sel[0],
+                activeColor: Colors.pink,
+                onChanged: (value){
+                  setState(() {
+                    sel[0]=value!;
+                  });
+                },
+                title: Text("Gujarati"),),
+              //2
+              CheckboxListTile(value: sel[1],
+                activeColor: Colors.pink,
+                onChanged: (value){
+                  setState(() {
+                    sel[1]=value!;
+                  });
+                },
+                title: Text("Hindi"),),
+              //3
+              CheckboxListTile(value: sel[2],
+                activeColor: Colors.pink,
+                onChanged: (value){
+                  setState(() {
+                    sel[2]=value!;
+                  });
+                },
+                title: Text("English"),),
+              //4
+              CheckboxListTile(value: sel[3],
+                activeColor: Colors.pink,
+                onChanged: (value){
+                  setState(() {
+                    sel[3]=value!;
+                  });
+                },
+                title: Text("Tamil"),),
+              //5
+              CheckboxListTile(value: sel[4],
+                activeColor: Colors.pink,
+                onChanged: (value){
+                  setState(() {
+                    sel[4]=value!;
+                  });
+                },
+                title: Text("Marathi"),),
+            ],
           ),
-          SizedBox(height: 10,),
-          //1
-          CheckboxListTile(value: sel[0],
-            activeColor: Colors.pink,
-            onChanged: (value){
-            setState(() {
-              sel[0]=value!;
-            });
-          },
-          title: Text("Gujarati"),),
-          //2
-          CheckboxListTile(value: sel[1],
-            activeColor: Colors.pink,
-            onChanged: (value){
-              setState(() {
-                sel[1]=value!;
-              });
-            },
-            title: Text("Hindi"),),
-          //3
-          CheckboxListTile(value: sel[2],
-            activeColor: Colors.pink,
-            onChanged: (value){
-              setState(() {
-                sel[2]=value!;
-              });
-            },
-            title: Text("English"),),
-          //4
-          CheckboxListTile(value: sel[3],
-            activeColor: Colors.pink,
-            onChanged: (value){
-              setState(() {
-                sel[3]=value!;
-              });
-            },
-            title: Text("Tamil"),),
-          //5
-          CheckboxListTile(value: sel[4],
-            activeColor: Colors.pink,
-            onChanged: (value){
-              setState(() {
-                sel[4]=value!;
-              });
-            },
-            title: Text("Marathi"),),
         ],
       ),
     );
