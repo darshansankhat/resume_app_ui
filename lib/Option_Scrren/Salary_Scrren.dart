@@ -38,7 +38,7 @@ class _Salary_scrrenState extends State<Salary_scrren> {
               labels: RangeLabels("${sal.start.round()}","${sal.end.round()}"),onChanged: (value) {
                 setState(() {
                   sal=value;
-                  TextEditingController(text: "$sal");
+                  saltxt=TextEditingController(text: "$sal");
                 });
               },
               activeColor: Colors.pink,
@@ -54,7 +54,7 @@ class _Salary_scrrenState extends State<Salary_scrren> {
                 controller: saltxt,
                 onChanged: (value) {
                   setState(() {
-                    sal = value as RangeValues;
+                    sal = int.parse(value) as RangeValues;
                   });
                 },
                 style: TextStyle(fontSize: 18,color: Colors.pink),

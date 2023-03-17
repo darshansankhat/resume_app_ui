@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 class Menu_scrren extends StatefulWidget {
@@ -10,63 +12,66 @@ class Menu_scrren extends StatefulWidget {
 class _Menu_scrrenState extends State<Menu_scrren> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.pink,
-        title: Text("Resume Builder App"),
-        actions: [
-          PopupMenuButton(itemBuilder: (context) => const [
-            PopupMenuItem(child: Text("Account")),
-            PopupMenuItem(child: Text("Settings")),
-            PopupMenuItem(child: Text("Profile")),
-            PopupMenuItem(child: Text("Help")),
-            PopupMenuItem(child: Text("Log out")),
-          ],)
-        ],
-      ),
-      body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: Padding(
-          padding: const EdgeInsets.all(10),
-          child: Column(
-            children: [
-              //Option
-              Row(
-                children: [
-                  InkWell(onTap: (){
-                      Navigator.pushNamed(context, 'Personal');
-                  },child: Option("Personal\ninformation",Icon(Icons.person,color: Colors.pink,size: 45))),
-                  Spacer(),
-                  InkWell(onTap: (){
-                      Navigator.pushNamed(context, "Quali");
-                  },child: Option("Qualification",Icon(Icons.book,color: Colors.pink,size: 45))),
-                ],
-              ),
-              SizedBox(height: 10),
-              Row(
-                children: [
-                  InkWell(onTap: (){
-                    Navigator.pushNamed(context, "Language");
-                  },child: Option("Know\nLanguage",Icon(Icons.language,color: Colors.pink,size: 45))),
-                  Spacer(),
-                  InkWell(onTap: (){
-                    Navigator.pushNamed(context, "expi");
-                  },child: Option("Work\nExpirence",Icon(Icons.work,color: Colors.pink,size: 45))),
-                ],
-              ),
-              SizedBox(height: 10),
-              Row(
-                children: [
-                  InkWell(onTap: (){
-                    Navigator.pushNamed(context, "sal");
-                  },child: Option("Salary\nInformation",Icon(Icons.currency_exchange,color: Colors.pink,size: 45))),
-                  Spacer(),
-                  InkWell(onTap: (){
-                    Navigator.pushNamed(context, "expi");
-                  },child: Option("Technical\nSkill",Icon(Icons.spoke,color: Colors.pink,size: 45))),
-                ],
-              ),
-            ],
+    return WillPopScope(
+      onWillPop: back,
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.pink,
+          title: Text("Resume Builder App"),
+          actions: [
+            PopupMenuButton(itemBuilder: (context) => const [
+              PopupMenuItem(child: Text("Account")),
+              PopupMenuItem(child: Text("Settings")),
+              PopupMenuItem(child: Text("Profile")),
+              PopupMenuItem(child: Text("Help")),
+              PopupMenuItem(child: Text("Log out")),
+            ],)
+          ],
+        ),
+        body: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Padding(
+            padding: const EdgeInsets.all(10),
+            child: Column(
+              children: [
+                //Option
+                Row(
+                  children: [
+                    InkWell(onTap: (){
+                        Navigator.pushNamed(context, 'Personal');
+                    },child: Option("Personal\ninformation",Icon(Icons.person,color: Colors.pink,size: 45))),
+                    Spacer(),
+                    InkWell(onTap: (){
+                        Navigator.pushNamed(context, "Quali");
+                    },child: Option("Qualification",Icon(Icons.book,color: Colors.pink,size: 45))),
+                  ],
+                ),
+                SizedBox(height: 10),
+                Row(
+                  children: [
+                    InkWell(onTap: (){
+                      Navigator.pushNamed(context, "Language");
+                    },child: Option("Know\nLanguage",Icon(Icons.language,color: Colors.pink,size: 45))),
+                    Spacer(),
+                    InkWell(onTap: (){
+                      Navigator.pushNamed(context, "expi");
+                    },child: Option("Work\nExpirence",Icon(Icons.work,color: Colors.pink,size: 45))),
+                  ],
+                ),
+                SizedBox(height: 10),
+                Row(
+                  children: [
+                    InkWell(onTap: (){
+                      Navigator.pushNamed(context, "sal");
+                    },child: Option("Salary\nInformation",Icon(Icons.currency_exchange,color: Colors.pink,size: 45))),
+                    Spacer(),
+                    InkWell(onTap: (){
+                      Navigator.pushNamed(context, "tec");
+                    },child: Option("Technical\nSkill",Icon(Icons.spoke,color: Colors.pink,size: 45))),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -102,4 +107,29 @@ class _Menu_scrrenState extends State<Menu_scrren> {
       )
     );
   }
+
+  void ExitDilog(){
+    showDialog(context: context, builder: (context) {
+      return AlertDialog(title: Text("Are Sure to Exit"),
+        content: Row(
+          children: [
+            ElevatedButton(onPressed: () {
+              exit(0);
+            }, child: Text("Yes"),style: ElevatedButton.styleFrom(backgroundColor: Colors.red),),
+            Spacer(),
+            ElevatedButton(onPressed: () {
+              Navigator.pop(context);
+            }, child: Text("No"),style: ElevatedButton.styleFrom(backgroundColor: Colors.green),)
+          ],
+        ),);
+    },);
+  }
+
+  Future<bool> back() async{
+
+    ExitDilog();
+
+    return await false;
+  }
+
 }
