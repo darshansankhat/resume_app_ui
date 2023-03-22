@@ -2,6 +2,7 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:resume_app_ui/Modal_class/Modal_data.dart';
 
 import '../Home/Menu_scrren.dart';
 
@@ -34,6 +35,7 @@ class _PersonalState extends State<Personal> {
   String Gender = "Male";
   String con = "India";
   String? c;
+  String? f_name;
 
   var txtkey = GlobalKey<FormState>();
 
@@ -386,7 +388,6 @@ class _PersonalState extends State<Personal> {
                                   showDataList.add(con);
                                   showDataList.add(c);
                                   Navigator.pop(context);
-                                  print(showDataList);
                                 }
                             },
                             child: Container(
