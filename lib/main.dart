@@ -7,6 +7,7 @@ import 'package:resume_app_ui/Option_Scrren/Personal_information.dart';
 import 'package:resume_app_ui/Option_Scrren/Qualification.dart';
 import 'package:resume_app_ui/Option_Scrren/Salary_Scrren.dart';
 import 'package:resume_app_ui/Option_Scrren/Technical_Scrren.dart';
+import 'package:resume_app_ui/Show%20data/Show_data.dart';
 
 void main()
 {
@@ -22,6 +23,7 @@ void main()
         "expi" : (context) => Expirence_scrren(),
         "sal" : (context) => Salary_scrren(),
         "tec" : (context) => Technical_scrren(),
+        "show" : (context) => Show_scrren(),
       },
     ),
   );
