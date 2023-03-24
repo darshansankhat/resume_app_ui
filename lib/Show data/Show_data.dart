@@ -23,9 +23,9 @@ class _Show_scrrenState extends State<Show_scrren> {
           actions: [
             Padding(
               padding: const EdgeInsets.only(right: 20),
-              child: InkWell(onTap: () {
+              child: InkWell(onTap: () async {
                 ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("PDF Save Successfully"),),);
-                Printing.layoutPdf(onLayout: (format) => GeneratePDF(),);
+                await Printing.layoutPdf(onLayout: (format) => GeneratePDF(m1),);
               },child: Icon(Icons.print,color: Colors.pink.shade100,size: 30,)),
             )
           ],

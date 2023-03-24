@@ -69,7 +69,7 @@ class _Menu_scrrenState extends State<Menu_scrren> {
                       onTap: () async {
                         ImagePicker i1 = ImagePicker();
                         XFile? xfile =
-                            await i1.pickImage(source: ImageSource.camera);
+                            await i1.pickImage(source: ImageSource.camera,imageQuality: 50);
                         setState(() {
                           path = xfile!.path;
                         });
@@ -87,7 +87,7 @@ class _Menu_scrrenState extends State<Menu_scrren> {
                       onTap: () async {
                         ImagePicker i1 = ImagePicker();
                         XFile? xfile =
-                            await i1.pickImage(source: ImageSource.gallery);
+                            await i1.pickImage(source: ImageSource.gallery,imageQuality: 50);
                         setState(() {
                           path = xfile!.path;
                         });
