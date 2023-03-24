@@ -79,7 +79,7 @@ class _Language_scrrenState extends State<Language_scrren> {
                       sel[3]=value!;
                     });
                   },
-                  title: Text("Tamil"),),
+                  title: Text("Marathi"),),
                 //5
                 CheckboxListTile(value: sel[4],
                   activeColor: Colors.pink,
@@ -88,7 +88,7 @@ class _Language_scrrenState extends State<Language_scrren> {
                       sel[4]=value!;
                     });
                   },
-                  title: Text("Marathi"),),
+                  title: Text("Other"),),
                 //Save
                 SizedBox(height: 10),
                 InkWell(onTap: () {
@@ -118,11 +118,11 @@ class _Language_scrrenState extends State<Language_scrren> {
                   }
                   if(sel[3])
                   {
-                    Language="$Language Tamil";
+                    Language="$Language Marathi";
                   }
                   if(sel[4])
                   {
-                    Language="$Language Marathi";
+                    Language="$Language Other";
                   }
 
                   showDataList.add(Language);

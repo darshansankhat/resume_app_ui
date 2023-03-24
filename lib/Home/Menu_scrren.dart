@@ -27,8 +27,7 @@ class _Menu_scrrenState extends State<Menu_scrren> {
           title: Text("Resume Builder App"),
           actions: [
             PopupMenuButton(
-              itemBuilder: (context) =>
-              const [
+              itemBuilder: (context) => const [
                 PopupMenuItem(child: Text("Account")),
                 PopupMenuItem(child: Text("Settings")),
                 PopupMenuItem(child: Text("Profile")),
@@ -57,20 +56,20 @@ class _Menu_scrrenState extends State<Menu_scrren> {
                       ),
                       child: path == null
                           ? CircleAvatar(
-                        backgroundImage:
-                        AssetImage("assets/Data_image/1.png"),
-                        backgroundColor: Colors.pink.shade100,
-                      )
+                              backgroundImage:
+                                  AssetImage("assets/Data_image/1.png"),
+                              backgroundColor: Colors.pink.shade100,
+                            )
                           : CircleAvatar(
-                        backgroundImage: FileImage(File("$path")),
-                        backgroundColor: Colors.pink.shade100,
-                      ),
+                              backgroundImage: FileImage(File("$path")),
+                              backgroundColor: Colors.pink.shade100,
+                            ),
                     ),
                     InkWell(
                       onTap: () async {
                         ImagePicker i1 = ImagePicker();
                         XFile? xfile =
-                        await i1.pickImage(source: ImageSource.camera);
+                            await i1.pickImage(source: ImageSource.camera);
                         setState(() {
                           path = xfile!.path;
                         });
@@ -88,7 +87,7 @@ class _Menu_scrrenState extends State<Menu_scrren> {
                       onTap: () async {
                         ImagePicker i1 = ImagePicker();
                         XFile? xfile =
-                        await i1.pickImage(source: ImageSource.gallery);
+                            await i1.pickImage(source: ImageSource.gallery);
                         setState(() {
                           path = xfile!.path;
                         });
@@ -106,8 +105,10 @@ class _Menu_scrrenState extends State<Menu_scrren> {
                 ),
                 SizedBox(height: 20),
                 //Text
-                Text("Pick Your Image",
-                  style: TextStyle(fontSize: 18, color: Colors.pink),),
+                Text(
+                  "Pick Your Image",
+                  style: TextStyle(fontSize: 18, color: Colors.pink),
+                ),
                 SizedBox(height: 20),
                 //Option
                 Row(
@@ -134,10 +135,11 @@ class _Menu_scrrenState extends State<Menu_scrren> {
                         onTap: () {
                           Navigator.pushNamed(context, "Language");
                         },
-                        child: Option("Know\nLanguage",
-                            Icon(Icons.language, color: Colors.pink, size: 45))),
+                        child: Option(
+                            "Know\nLanguage",
+                            Icon(Icons.language,
+                                color: Colors.pink, size: 45))),
                     Spacer(),
-
                     InkWell(
                         onTap: () {
                           Navigator.pushNamed(context, "expi");
@@ -173,22 +175,33 @@ class _Menu_scrrenState extends State<Menu_scrren> {
                   children: [
                     InkWell(
                       onTap: () {
-                        print(showDataList);
-                        Modal_data m1 = Modal_data(path: path,
-                            f_name: showDataList[0]!,
-                            l_name: showDataList[1]!,
-                            add: showDataList[2]!,
-                            con: showDataList[3]!,
-                            email: showDataList[4]!,
-                            gen: showDataList[5]!,
-                            nation: showDataList[6]!,
-                            city: showDataList[7],
-                            edu:  showDataList[8],
+                        showDataList.isEmpty
+                            ? ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                    content: Text(
+                                      "First Enter All Data Line By Line",
+                                      style: TextStyle(fontSize: 15),
+                                    ),
+                                    backgroundColor: Colors.black12,
+                                    behavior: SnackBarBehavior.floating),
+                              )
+                            : print(showDataList);
+                        Modal_data m1 = Modal_data(
+                          path: path,
+                          f_name: showDataList[0]!,
+                          l_name: showDataList[1]!,
+                          add: showDataList[2]!,
+                          con: showDataList[3]!,
+                          email: showDataList[4]!,
+                          gen: showDataList[5]!,
+                          nation: showDataList[6]!,
+                          city: showDataList[7],
+                          edu: showDataList[8],
                           lang: showDataList[9],
                           exp: showDataList[10],
                           sal: showDataList[11],
                           skill: showDataList[12],
-                            );
+                        );
                         Navigator.pushNamed(context, "show", arguments: m1);
                       },
                       child: Container(
@@ -212,7 +225,8 @@ class _Menu_scrrenState extends State<Menu_scrren> {
                           SnackBar(
                             content: Text(
                               "Data Clear Successfully",
-                              style: TextStyle(fontSize: 18, color: Colors.white),
+                              style:
+                                  TextStyle(fontSize: 18, color: Colors.white),
                             ),
                             backgroundColor: Colors.black26,
                             behavior: SnackBarBehavior.floating,
@@ -277,28 +291,43 @@ class _Menu_scrrenState extends State<Menu_scrren> {
         ));
   }
 
-void ExitDilog(){
-  showDialog(context: context, builder: (context) {
-    return AlertDialog(title: Text("Are Sure to Exit",style: TextStyle(color: Colors.white),),
-      backgroundColor: Colors.black38,
-      content: Row(
-        children: [
-          ElevatedButton(onPressed: () {
-            exit(0);
-          }, child: Text("Yes"),style: ElevatedButton.styleFrom(backgroundColor: Colors.red),),
-          Spacer(),
-          ElevatedButton(onPressed: () {
-            Navigator.pop(context);
-          }, child: Text("No"),style: ElevatedButton.styleFrom(backgroundColor: Colors.green),)
-        ],
-      ),);
-  },);
-}
+  void ExitDilog() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text(
+            "Are Sure to Exit",
+            style: TextStyle(color: Colors.white),
+          ),
+          backgroundColor: Colors.black38,
+          content: Row(
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  exit(0);
+                },
+                child: Text("Yes"),
+                style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+              ),
+              Spacer(),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text("No"),
+                style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
+              )
+            ],
+          ),
+        );
+      },
+    );
+  }
 
-Future<bool> back() async{
+  Future<bool> back() async {
+    ExitDilog();
 
-  ExitDilog();
-
-  return await false;
-}
+    return await false;
+  }
 }

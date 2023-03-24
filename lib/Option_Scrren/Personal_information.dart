@@ -29,7 +29,9 @@ class _PersonalState extends State<Personal> {
     "Vadodara",
     "Amorally",
     "Baroda",
-    "gandhi nagar"
+    "gandhi nagar",
+    "Other",
+    "Other",
   ];
 
   String Gender = "Male";

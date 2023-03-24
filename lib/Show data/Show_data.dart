@@ -1,7 +1,9 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:printing/printing.dart';
 import 'package:resume_app_ui/Modal_class/Modal_data.dart';
+import 'package:resume_app_ui/Utils/Pdf_gen.dart';
 
 class Show_scrren extends StatefulWidget {
   const Show_scrren({Key? key}) : super(key: key);
@@ -21,7 +23,10 @@ class _Show_scrrenState extends State<Show_scrren> {
           actions: [
             Padding(
               padding: const EdgeInsets.only(right: 20),
-              child: Icon(Icons.print,color: Colors.pink.shade100,size: 30,),
+              child: InkWell(onTap: () {
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("PDF Save Successfully"),),);
+                Printing.layoutPdf(onLayout: (format) => GeneratePDF(),);
+              },child: Icon(Icons.print,color: Colors.pink.shade100,size: 30,)),
             )
           ],
         ),
@@ -107,7 +112,7 @@ class _Show_scrrenState extends State<Show_scrren> {
                     Padding(
                       padding: const EdgeInsets.only(top: 130,left: 5),
                       child: Text(
-                        "Education Codification",
+                        "Education Colification",
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 15),
                       ),
